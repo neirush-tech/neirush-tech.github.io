@@ -1,0 +1,45 @@
+/* Підключення шрифту */
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('../fonts/RobotoSlab.ttf') format('truetype');
+}
+
+/* Загальні стилі */
+body {
+    font-family: 'Roboto Slab', serif;
+    color: #333;
+}
+
+.hero-section {
+    height: 90vh;
+}
+
+.btn-warning {
+    background-color: #f6a111;
+    border-color: #f6a111;
+    color: #fff;
+    font-weight: bold;
+}
+
+.text-warning {
+    color: #f6a111 !important;
+}
+
+/* Допоміжні класи */
+.brightness-0-invert {
+    filter: brightness(0) invert(1);
+}
+
+.social-icons img {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-icons img:hover {
+    transform: translateY(-5px);
+}
+
+/* Імпорт модулів (якщо ви їх створили) */
+@import url('header.css');
+@import url('middle.css');
+@import url('footer.css');
