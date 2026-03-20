@@ -39,7 +39,7 @@ body {
     transform: translateY(-5px);
 }
 
-/* Імпорт модулів (якщо ви їх створили) */
+/* Імпорт модулів */
 @import url('header.css');
 @import url('middle.css');
 @import url('footer.css');
