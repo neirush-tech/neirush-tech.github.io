@@ -3,157 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agridera Seeds and Agriculture Ltd</title>
+    <title>Agridera Seeds and Agriculture Ltd - Головна</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* --- БАЗОВІ СТИЛІ ТА ЗМІННІ --- */
+        /* Базові змінні кольорів з макету */
         :root {
-            --primary-dark: #3a4b49;    /* Темно-сірий/зелений для тексту */
-            --primary-green: #599b55;   /* Акцентний зелений */
-            --bg-light: #f9f9f9;        /* Світло-сірий фон секцій */
-            --text-gray: #666;          /* Основний колір тексту */
-            --footer-bg: #354442;       /* Фон підвалу */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --agri-green: #67a756;   /* Акцентний зелений */
+            --agri-dark: #3a4b49;    /* Темно-сірий/зелений для тексту */
+            --agri-light: #f9f9f9;   /* Світло-сірий фон секцій */
+            --footer-bg: #354442;   /* Фон підвалу */
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-gray);
+            background-color: var(--agri-light);
+            color: #444;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
-            color: var(--primary-dark);
-            font-family: 'Georgia', serif; /* Шрифт із зарубками для заголовків */
-            font-weight: normal;
+        /* --- ШАПКА --- */
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand img {
+            height: 55px;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        .nav-link { 
+            color: var(--agri-dark); 
+            font-weight: 600; 
+            font-size: 0.85rem; 
+            text-transform: uppercase;
+            padding: 0.5rem 1rem !important;
             transition: color 0.3s;
         }
 
-        ul {
-            list-style: none;
+        .nav-link:hover, .nav-link.active { color: var(--agri-green); }
+
+        .search-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 5px;
+            padding-right: 1rem;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
+        .search-box { 
+            border: none; 
+            border-bottom: 1px solid #ccc; 
+            outline: none; 
+            width: 150px; 
+            font-size: 0.85rem;
+            margin-right: 5px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Розділювач "крапки" */
-        .dots {
-            color: var(--primary-green);
-            letter-spacing: 5px;
-            font-weight: bold;
-            margin: 15px 0 25px 0;
-            display: block;
-        }
-
-        /* --- ШАПКА (HEADER) --- */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            position: absolute;
+        /* --- ГОЛОВНИЙ БАНЕР (HERO BANNER) --- */
+        .hero-banner {
             width: 100%;
-            top: 0;
-            z-index: 100;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 60px; /* Трохи збільшив для чіткості */
-            display: block;
-        }
-
-        .top-nav-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 15px;
-        }
-
-        .search-bar {
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .search-bar input {
-            border: none;
-            background: transparent;
-            outline: none;
-            font-size: 14px;
-            width: 180px;
-            color: var(--primary-dark);
-        }
-
-        .search-bar img {
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary-dark);
-            text-transform: uppercase; /* Як на макеті */
-        }
-
-        nav a:hover {
-            color: var(--primary-green);
-        }
-
-        /* --- ГОЛОВНИЙ БАНЕР (HERO) --- */
-        .hero {
-            /* Відкоректовано під hero-bg.jpg */
-            background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('images/hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 650px;
+            height: 600px;
+            background: url('images/hero-bg.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 100px; /* Місце для абсолютної шапки */
+            color: var(--agri-dark);
         }
 
-        .hero-content h1 {
-            font-size: 48px;
-            margin-bottom: 35px;
+        .hero-banner h1 {
+            font-size: 3rem;
             max-width: 800px;
-            line-height: 1.2;
+            margin-bottom: 40px;
+            font-family: 'Georgia', serif; 
+            font-weight: bold;
         }
 
         .btn-green {
-            background-color: var(--primary-green);
+            background-color: var(--agri-green);
             color: white;
             padding: 15px 35px;
-            font-size: 14px;
+            font-size: 0.85rem;
             font-weight: bold;
             border: none;
             cursor: pointer;
@@ -162,53 +96,44 @@
             transition: background 0.3s;
         }
 
-        .btn-green:hover {
-            background-color: #467a42;
-        }
+        .btn-green:hover { background-color: #558c47; }
 
-        /* --- ПАНЕЛЬ КУЛЬТУР (FEATURES) --- */
+        /* --- СІТКА ІКОНОК КУЛЬТУР --- */
         .features-bar {
-            background-color: white;
+            background-color: #ffffff;
             padding: 50px 0;
             border-bottom: 1px solid #eee;
         }
 
-        .features-grid {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            text-align: center;
-            gap: 15px;
-        }
-
         .feature-item {
-            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
+            gap: 15px;
+            width: calc(100% / 7); /* 7 в ряд */
+            padding: 0 10px;
         }
 
-        /* Оскільки іконок культур немає у папці, залишаю заглушки для іконок */
+        /* Заглушки іконок */
         .feature-icon-placeholder {
-            width: 40px;
-            height: 40px;
+            width: 40px; height: 40px;
             background-color: #eee;
             border-radius: 50%;
-            margin-bottom: 15px;
+            display: flex; align-items: center; justify-content: center;
         }
 
         .feature-item span {
-            font-size: 12px;
-            color: var(--text-gray);
+            font-size: 0.75rem;
+            color: #777;
             font-weight: 500;
             line-height: 1.3;
-            max-width: 100px;
         }
 
         /* --- VISION & MISSION --- */
         .info-section {
             padding: 100px 0;
-            background-color: white;
+            background-color: #ffffff;
             position: relative;
             overflow: hidden;
         }
@@ -217,18 +142,14 @@
         .info-section::before, .info-section::after {
             content: '';
             position: absolute;
-            background-color: var(--bg-light);
+            background-color: var(--agri-light);
             border-radius: 50%;
             z-index: 1;
         }
 
-        .info-section::before {
-            top: -10%; left: -15%; width: 50%; height: 60%;
-        }
+        .info-section::before { top: -10%; left: -15%; width: 50%; height: 60%; }
         
-        .info-section::after {
-            bottom: -20%; right: -15%; width: 65%; height: 70%;
-        }
+        .info-section::after { bottom: -20%; right: -15%; width: 65%; height: 70%; }
 
         .info-block {
             display: flex;
@@ -239,42 +160,26 @@
             z-index: 2;
         }
 
-        .info-block.reverse {
-            flex-direction: row-reverse;
-        }
+        .info-block.reverse { flex-direction: row-reverse; }
 
-        .info-text {
-            width: 45%;
-        }
+        .info-text { width: 45%; }
 
-        .info-text h2 {
-            font-size: 56px;
-        }
+        .info-text h2 { font-size: 3.5rem; font-family: 'Georgia', serif; font-weight: bold; color: var(--agri-dark); margin-bottom: 15px;}
 
-        .info-text p {
-            font-size: 16px;
-            color: var(--text-gray);
-            line-height: 1.8;
-        }
+        .dots { color: var(--agri-green); letter-spacing: 5px; font-weight: bold; margin-bottom: 25px;}
 
-        .info-text strong {
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
+        .info-text p { font-size: 1rem; color: #555; line-height: 1.8; text-align: justify; }
 
-        .info-image {
-            width: 48%;
-            position: relative;
-        }
+        .info-image { width: 48%; position: relative;}
 
-        .info-image img {
-            width: 100%;
-            border-radius: 4px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        .info-image img { 
+            width: 100%; 
+            border-radius: 5px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
             display: block;
         }
 
-        /* Кнопка Play для Mission */
+        /* Кнопка Play */
         .play-btn {
             position: absolute;
             top: 50%; left: 50%;
@@ -283,272 +188,235 @@
             background-color: rgba(255,255,255,0.9);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            color: var(--primary-green);
-            font-size: 28px;
+            color: var(--agri-green);
+            font-size: 2rem;
             cursor: pointer;
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             transition: transform 0.3s, background 0.3s;
         }
-
-        .play-btn:hover {
-            transform: translate(-50%, -50%) scale(1.1);
-            background-color: white;
-        }
+        .play-btn:hover { transform: translate(-50%, -50%) scale(1.1); background-color: white; }
 
         /* --- ГОЛОВНА ДІЯЛЬНІСТЬ (ACTIVITIES) --- */
         .activities {
             padding: 100px 0;
             text-align: center;
-            background-color: var(--bg-light);
+            background-color: var(--agri-light);
         }
 
-        .activities h2 {
-            font-size: 38px;
-        }
-
-        .activities-grid {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            margin-top: 60px;
-        }
+        .activities h2 { font-size: 2.2rem; font-family: 'Georgia', serif; font-weight: bold; color: var(--agri-dark); margin-bottom: 10px; }
 
         .activity-card {
-            flex: 1;
             background-color: transparent;
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 100%;
         }
 
         .activity-card .img-wrap {
-            height: 180px; /* Фіксована висота для вирівнювання тексту */
+            height: 180px; /* Вирівнювання тексту */
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .activity-card img { max-height: 100%; width: auto; display: block;}
+
+        .activity-card a { text-decoration: none; color: inherit;}
+
+        .activity-card h3 { 
+            color: var(--agri-green); 
+            font-size: 1.1rem; 
+            font-weight: 700;
+            margin-bottom: 15px; 
+        }
+
+        .activity-card p { font-size: 0.85rem; color: #666; max-width: 280px; text-align: center; }
+
+        /* --- ПІДВАЛ --- */
+        footer { 
+            background-color: var(--footer-bg); 
+            color: white; 
+            padding: 50px 0 20px; 
+            font-size: 0.8rem; 
+        }
+
+        .footer-links {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .activity-card img {
-            max-height: 100%;
-            width: auto;
+        .footer-links a { 
+            color: #ccc; 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
         }
 
-        .activity-card h3 {
-            color: var(--primary-green);
-            font-size: 19px;
-            margin-bottom: 15px;
-            font-family: 'Segoe UI', sans-serif; /* Тут простий шрифт */
-            font-weight: 600;
-        }
-
-        .activity-card p {
-            font-size: 14px;
-            color: var(--text-gray);
-            line-height: 1.6;
-            max-width: 280px;
-        }
-
-        /* --- ПІДВАЛ (FOOTER) --- */
-        footer {
-            background-color: var(--footer-bg);
-            color: white;
-            padding: 40px 0 20px 0;
-            font-size: 13px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 25px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links ul {
-            display: flex;
-            gap: 25px;
-        }
-
-        .footer-links a {
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
+        .footer-links a:hover { color: white; }
 
         .social-icons {
             display: flex;
-            gap: 12px;
+            justify-content: flex-end;
+            gap: 10px;
         }
 
         .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
             width: 32px;
             height: 32px;
             border: 1px solid rgba(255,255,255,0.3);
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background 0.3s, border-color 0.3s;
+            transition: background 0.3s;
         }
 
-        .social-icons a:hover {
-            background-color: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.5);
-        }
+        .social-icons a:hover { background-color: rgba(255,255,255,0.1); }
 
-        .social-icons img {
-            width: 14px;
-            height: 14px;
-            /* Роблю іконки білими за допомогою фільтра */
-            filter: brightness(0) invert(1); 
+        .social-icons img { 
+            width: 14px; 
+            filter: brightness(0) invert(1); /* Робить чорні SVG білими */
         }
 
         .copyright {
             text-align: center;
-            color: rgba(255,255,255,0.5);
-            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* =========================================
-           --- АДАПТИВНІСТЬ (RESPONSIVE) ---
-           ========================================= */
-
-        /* Планшети (max-width: 992px) */
-        @media (max-width: 992px) {
-            .hero h1 { font-size: 36px; }
-            .info-text h2 { font-size: 42px; }
-            .features-grid { flex-wrap: wrap; justify-content: center; gap: 20px 10px; }
-            .feature-item { flex: 0 0 22%; }
+        /* --- АДАПТИВНІСТЬ --- */
+        @media (max-width: 991px) {
+            .hero-banner { height: 500px; }
+            .hero-banner h1 { font-size: 2.2rem; }
+            .info-text h2 { font-size: 2.8rem; }
+            .feature-item { width: calc(100% / 3); padding-bottom: 20px; }
+            .search-wrapper { justify-content: flex-start; margin-top: 15px; padding-left: 1rem; }
+            .social-icons { justify-content: flex-start; margin-top: 20px; }
         }
 
-        /* Великі мобільні (max-width: 768px) */
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; gap: 15px; }
-            .top-nav-wrapper { align-items: center; }
-            nav ul { gap: 15px; font-size: 12px; flex-wrap: wrap; justify-content: center; }
-            
-            .hero { height: 500px; padding-top: 150px; }
-            
-            .info-block, .info-block.reverse { flex-direction: column; text-align: center; gap: 30px; }
+        @media (max-width: 767px) {
+            .info-block, .info-block.reverse { flex-direction: column; text-align: center; gap: 40px; }
             .info-text, .info-image { width: 100%; }
-            .info-text h2 { font-size: 36px; }
-
-            .activities-grid { flex-direction: column; gap: 40px; align-items: center; }
-            .activity-card { width: 100%; max-width: 350px; }
+            .info-text h2 { font-size: 2.2rem; }
+            .feature-item { width: 50%; }
+            .activity-card { margin-bottom: 50px; }
             .activity-card .img-wrap { height: auto; }
-
-            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
-            .footer-links ul { flex-direction: column; gap: 10px; }
         }
-
-        /* Малі мобільні (max-width: 480px) */
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 28px; }
-            .feature-item { flex: 0 0 45%; }
-            .info-text h2 { font-size: 30px; }
-        }
-
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container header-content">
-            <div class="logo">
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
                 <img src="images/Logo.png" alt="Agridera Logo">
-            </div>
-            <div class="top-nav-wrapper">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search">
-                    <img src="images/ico_search.svg" alt="Search">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column align-items-end" id="mainNav">
+                <div class="search-wrapper w-100">
+                    <input type="text" class="search-box" placeholder="Search">
+                    <img src="images/ico_search.svg" alt="Search icon" width="16">
                 </div>
-                <nav>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Company Profile</a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">R & D</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </nav>
+                <ul class="navbar-nav w-100 justify-content-end">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tomatoes.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">R & D</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section class="hero">
-            <div class="container hero-content">
+    <div class="container-fluid p-0">
+        <div class="hero-banner">
+            <div class="container">
                 <h1>Agridera Seeds and Agriculture Ltd</h1>
                 <button class="btn-green">READ MORE</button>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <section class="features-bar">
-            <div class="container features-grid">
-                <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Wheat</span></div>
-                <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Confection Watermelon</span></div>
-                <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Clover</span></div>
-                <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Confection Sunflower</span></div>
-                <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Tomato</span></div>
-                <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Eggplant P/O</span></div>
-                <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Ornamental Sunflower</span></div>
-            </div>
-        </section>
+    <section class="features-bar">
+        <div class="container d-flex flex-wrap justify-content-between g-0">
+            <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Wheat</span></div>
+            <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Confection Watermelon</span></div>
+            <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Clover</span></div>
+            <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Confection Sunflower</span></div>
+            <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Tomato</span></div>
+            <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Eggplant P/O</span></div>
+            <div class="feature-item"><div class="feature-icon-placeholder"></div><span>Ornamental Sunflower</span></div>
+        </div>
+    </section>
 
-        <section class="info-section">
-            <div class="container">
-                <div class="info-block">
-                    <div class="info-text">
-                        <h2>Vision</h2>
-                        <span class="dots">•••••</span>
-                        <p>We believe in long-term growth with an emphasis on the potential of emerging markets. We also support the global need of feeding the growing population.</p>
-                    </div>
-                    <div class="info-image">
-                        <img src="images/Vision.png" alt="Lab specialist holding a sprout">
-                    </div>
+    <section class="info-section">
+        <div class="container">
+            <div class="info-block">
+                <div class="info-text">
+                    <h2>Vision</h2>
+                    <div class="dots">•••••</div>
+                    <p>We believe in long-term growth with an emphasis on the potential of emerging markets. We also support the global need of feeding the growing population.</p>
                 </div>
-
-                <div class="info-block reverse">
-                    <div class="info-text">
-                        <h2>Mission</h2>
-                        <span class="dots">•••••</span>
-                        <p>Breeding and marketing seeds for advanced field crops and vegetable varieties that provide an <strong>added value</strong> to all supply chain partners.</p>
-                    </div>
-                    <div class="info-image">
-                        <img src="images/Mission.png" alt="Hand planting a seed">
-                        <div class="play-btn">▶</div>
-                    </div>
+                <div class="info-image">
+                    <img src="images/Vision.png" alt="Vision: Specialist working with sprout">
                 </div>
             </div>
-        </section>
 
-        <section class="activities">
-            <div class="container">
-                <h2>Agridera's main activities</h2>
-                <span class="dots">•••••</span>
+            <div class="info-block reverse">
+                <div class="info-text">
+                    <h2>Mission</h2>
+                    <div class="dots">•••••</div>
+                    <p>Breeding and marketing seeds for advanced field crops and vegetable varieties that provide an <strong>added value</strong> to all supply chain partners.</p>
+                </div>
+                <div class="info-image">
+                    <img src="images/Mission.png" alt="Mission: Planting a seed">
+                    <div class="play-btn">▶</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="activities">
+        <div class="container">
+            <h2>Agridera's main activities</h2>
+            <div class="dots">•••••</div>
+            
+            <div class="row mt-5 g-4 justify-content-center">
                 
-                <div class="activities-grid">
+                <div class="col-sm-6 col-md-4">
                     <div class="activity-card">
                         <div class="img-wrap">
-                            <img src="images/image 4.png" alt="Open field crops">
+                            <img src="images/image 4.png" alt="Open field crop seeds">
                         </div>
                         <h3>Open field crop seeds</h3>
                         <p>wheat, cotton, legumes, hybrid confection sunflower</p>
                     </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
                     <div class="activity-card">
                         <div class="img-wrap">
-                            <img src="images/image 5.png" alt="Vegetable seeds">
+                            <a href="tomatoes.html">
+                                <img src="images/image 5.png" alt="Vegetable seeds">
+                            </a>
                         </div>
-                        <h3>Vegetable seeds</h3>
+                        <a href="tomatoes.html">
+                            <h3>Vegetable seeds</h3>
+                        </a>
                         <p>hybrid open field tomatoes, eggplant, onion, paprika, etc.</p>
                     </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
                     <div class="activity-card">
                         <div class="img-wrap">
                             <img src="images/3 1.png" alt="Ornamental seeds">
@@ -557,29 +425,33 @@
                         <p>hybrid cut sunflowers, hybrid patio tomatoes, Bells of Irland, etc.</p>
                     </div>
                 </div>
+
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="#">PROFILE</a></li>
-                        <li><a href="#">MANAGEMENT</a></li>
-                        <li><a href="#">PRODUCTS</a></li>
-                        <li><a href="#">R&D</a></li>
-                        <li><a href="#">LINKS</a></li>
-                        <li><a href="#">SITEMAP</a></li>
-                        <li><a href="#">CONTACT</a></li>
-                    </ul>
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="footer-links">
+                        <a href="#">Profile</a>
+                        <a href="#">Management</a>
+                        <a href="tomatoes.html">Products</a>
+                        <a href="#">R&D</a>
+                        <a href="#">Links</a>
+                        <a href="#">Sitemap</a>
+                        <a href="#">Contact</a>
+                    </div>
                 </div>
-                <div class="social-icons">
-                    <a href="#"><img src="images/linkedin 5 4.svg" alt="Linkedin"></a>
-                    <a href="#"><img src="images/instagram.svg" alt="Instagram"></a> <a href="#"><img src="images/youtube 5 4.svg" alt="Youtube"></a>
-                    <a href="#"><img src="images/twitter 5 4.svg" alt="Twitter"></a>
-                    <a href="#"><img src="images/facebook 5 4.svg" alt="Facebook"></a>
+                <div class="col-md-4">
+                    <div class="social-icons">
+                        <a href="#"><img src="images/linkedin 5 4.svg" alt="Linkedin"></a>
+                        <a href="#"><img src="images/instagram 5 4.svg" alt="Instagram"></a>
+                        <a href="#"><img src="images/youtube 5 4.svg" alt="Youtube"></a>
+                        <a href="#"><img src="images/twitter 5 4.svg" alt="Twitter"></a>
+                        <a href="#"><img src="images/facebook 5 4.svg" alt="Facebook"></a>
+                    </div>
                 </div>
             </div>
             <div class="copyright">
@@ -588,5 +460,6 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
