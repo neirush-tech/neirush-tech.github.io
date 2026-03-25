@@ -62,7 +62,7 @@
         /* --- ГОЛОВНЕ ЗОБРАЖЕННЯ (HERO BANNER) --- */
         .hero-banner {
             width: 100%;
-            height: 350px; /* Висота банера як на фото */
+            height: 350px; 
             object-fit: cover;
             display: block;
         }
@@ -103,13 +103,13 @@
             line-height: 1.5;
         }
 
-        /* Блоки програм (Greenhouse, etc.) */
+        /* Блоки програм */
         .breeding-program h5 {
             font-size: 1.1rem;
             border-bottom: 1px solid #ddd;
             padding-bottom: 15px;
             margin-bottom: 15px;
-            height: 50px; /* Вирівнювання заголовків */
+            height: 50px; 
         }
 
         .breeding-program p {
@@ -157,6 +157,14 @@
         .tomato-desc { 
             font-size: 0.85rem; 
             color: #777; 
+        }
+
+        /* Стиль для посилання на картку */
+        .product-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
         }
 
         /* --- ПІДВАЛ --- */
@@ -207,7 +215,7 @@
 
         .social-icons img { 
             width: 14px; 
-            filter: brightness(0) invert(1); /* Робить чорні SVG білими */
+            filter: brightness(0) invert(1); 
         }
 
         .copyright {
@@ -325,13 +333,15 @@
             </div>
 
             <div class="col-sm-6 col-md-4">
-                <div class="tomato-card">
-                    <img src="images/image 3.3.png" alt="TAG 1002">
-                    <div class="card-body">
-                        <div class="tomato-title">TAG 1002 (TAG 809)</div>
-                        <div class="tomato-desc">Tomato Determinate Red Standard Round</div>
+                <a href="tomato-one.html" class="product-link">
+                    <div class="tomato-card">
+                        <img src="images/image 3.3.png" alt="TAG 1002">
+                        <div class="card-body">
+                            <div class="tomato-title">TAG 1002 (TAG 809)</div>
+                            <div class="tomato-desc">Tomato Determinate Red Standard Round</div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="col-sm-6 col-md-4">
