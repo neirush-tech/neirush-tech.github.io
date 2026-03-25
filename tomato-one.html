@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAG 1002 - Agridera</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --agri-green: #67a756;
+            --agri-dark: #3a4b49;
+            --agri-bg-pink: #fdf5f5;
+            --footer-bg: #354442;
+        }
+
+        body {
+            background-color: var(--agri-bg-pink);
+            color: #444;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Водяний знак на фоні */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 60%;
+            background: url('images/Union (1).png') no-repeat center;
+            background-size: contain;
+            opacity: 0.04;
+            z-index: -1;
+        }
+
+        /* --- ШАПКА (копія з tomatoes.html) --- */
+        .navbar { background-color: #ffffff; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .navbar-brand img { height: 55px; }
+        .nav-link { color: var(--agri-dark); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; padding: 0.5rem 1rem !important; }
+        .nav-link:hover { color: var(--agri-green); }
+        .search-wrapper { display: flex; justify-content: flex-end; align-items: center; margin-bottom: 5px; padding-right: 1rem; }
+        .search-box { border: none; border-bottom: 1px solid #ccc; outline: none; width: 150px; font-size: 0.85rem; margin-right: 5px; }
+
+        /* --- КОНТЕНТ --- */
+        .breadcrumb-link {
+            color: var(--agri-green);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        h1, h2, h4, h5, h6 { font-family: 'Georgia', serif; font-weight: bold; }
+        .product-title { color: var(--agri-dark); font-size: 2.5rem; margin-bottom: 0; }
+        .product-subtitle { color: var(--agri-green); font-size: 1.8rem; line-height: 1.2; }
+        .dots { color: var(--agri-green); letter-spacing: 5px; font-weight: bold; margin: 15px 0; }
+
+        /* Червона печатка/badge */
+        .promo-badge {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+        }
+        .badge-icons {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            margin-right: 15px;
+        }
+        .badge-bg { width: 100%; position: absolute; z-index: 1; }
+        .badge-icon { width: 60%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; }
+        .promo-text { color: #d9534f; font-size: 1.2rem; line-height: 1.2; margin: 0; }
+
+        /* Таблиця характеристик */
+        .char-title { color: var(--agri-green); border-bottom: 2px solid var(--agri-green); padding-bottom: 5px; margin-top: 25px; margin-bottom: 15px; }
+        ul { list-style: none; padding-left: 0; font-size: 0.9rem; }
+        ul li::before { content: "•"; color: var(--agri-green); font-weight: bold; display: inline-block; width: 1em; }
+
+        .product-main-img {
+            width: 100%;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- ПІДВАЛ (копія з tomatoes.html) --- */
+        footer { background-color: var(--footer-bg); color: white; padding: 50px 0 20px; font-size: 0.8rem; margin-top: 60px; }
+        .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+        .footer-links a { color: #ccc; text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+        .social-icons { display: flex; justify-content: flex-end; gap: 10px; }
+        .social-icons a { display: inline-flex; justify-content: center; align-items: center; width: 30px; height: 30px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; }
+        .social-icons img { width: 14px; filter: brightness(0) invert(1); }
+        .copyright { text-align: center; color: rgba(255,255,255,0.4); margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+        @media (max-width: 991px) {
+            .search-wrapper, .social-icons { justify-content: flex-start; margin-top: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="tomatoes.html">
+                <img src="images/Logo.png" alt="Agridera Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-column align-items-end" id="mainNav">
+                <div class="search-wrapper w-100">
+                    <input type="text" class="search-box" placeholder="Search">
+                    <img src="images/ico_search.svg" alt="Search icon" width="16">
+                </div>
+                <ul class="navbar-nav w-100 justify-content-end">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="tomatoes.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">R & D</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="tomatoes.html" class="breadcrumb-link">← Return to all tomatoes</a>
+
+        <div class="row mt-3">
+            <div class="col-lg-6 pe-lg-5">
+                <h1 class="product-title">TAG 1002 (TAG 809)</h1>
+                <h2 class="product-subtitle">Tomato Determinate<br>Red Standard Round</h2>
+                <div class="dots">•••••</div>
+
+                <div class="promo-badge">
+                    <div class="badge-icons">
+                        <img src="images/Vector.png" class="badge-bg" alt="badge bg">
+                        <img src="images/Union.png" class="badge-icon" alt="tomato icon">
+                    </div>
+                    <h4 class="promo-text">Very high yield and<br>excellent fruits quality!</h4>
+                </div>
+
+                <h5 style="color: var(--agri-green); margin-top: 40px;">CHARACTERISTICS</h5>
+                <p class="small mb-4">
+                    <strong>Resistance:</strong><br>
+                    HR: ToMV:0-2; Fol: 1,2; Ve/Vd;<br>
+                    IR: TYLCV
+                </p>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="char-title">Plant</h6>
+                        <ul>
+                            <li>Strong vigor that provides good leaf coverage.</li>
+                            <li>Very high productivity with good fruit setting.</li>
+                            <li>Early matured variety.</li>
+                        </ul>
+                        
+                        <h6 class="char-title">Fruit</h6>
+                        <ul>
+                            <li>Long shelf life on plant and post harvest.</li>
+                            <li>Nice shiny attractive deep red color.</li>
+                            <li>Average fruit size: 140 – 160 grams.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="char-title">Cycle</h6>
+                        <ul>
+                            <li>Spring</li>
+                            <li>Fall</li>
+                            <li>Winter</li>
+                        </ul>
+                        <h6 class="char-title">Color</h6>
+                        <p class="ps-2 small">Red</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 text-center mt-4 mt-lg-0">
+                <img src="images/image 3.jpg" alt="TAG 1002" class="product-main-img mb-4">
+                <div class="text-end">
+                    <a href="#"><img src="images/Btn download pdf.png" alt="Download PDF" style="width: 200px;"></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="footer-links">
+                        <a href="#">Profile</a>
+                        <a href="#">Management</a>
+                        <a href="#">Products</a>
+                        <a href="#">R&D</a>
+                        <a href="#">Links</a>
+                        <a href="#">Sitemap</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="social-icons">
+                        <a href="#"><img src="images/linkedin 5 4.svg" alt="Linkedin"></a>
+                        <a href="#"><img src="images/instagram 5 4.svg" alt="Instagram"></a>
+                        <a href="#"><img src="images/youtube 5 4.svg" alt="Youtube"></a>
+                        <a href="#"><img src="images/twitter 5 4.svg" alt="Twitter"></a>
+                        <a href="#"><img src="images/facebook 5 4.svg" alt="Facebook"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                AGRIDERA SEEDS & AGRICULTURE LTD. © 2026
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
