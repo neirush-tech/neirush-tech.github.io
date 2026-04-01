@@ -42,7 +42,7 @@ new Vue({
                 cartIds.push(id);
                 window.localStorage.setItem('cart', cartIds.join());
                 this.btnVisible = 1;
-                this.getCart(); // Оновлюємо масив cart відразу
+                this.getCart(); 
             }
         },
         checkInCart: function() {
@@ -78,11 +78,12 @@ new Vue({
                 } else {
                     window.localStorage.removeItem('cart');
                 }
-    
+            }
             if (this.product.id == id) this.btnVisible = 0;
         },
         makeOrder: function() {
             this.orderSubmitted = true;
+            
             this.cart = [];
             window.localStorage.removeItem('cart');
             this.btnVisible = 0;
