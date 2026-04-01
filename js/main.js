@@ -67,10 +67,8 @@ new Vue({
             }
         },
         removeFromCart: function(id) {
-            // Видаляємо з масиву Vue
             this.cart = this.cart.filter(item => item.id != id);
             
-            // Оновлюємо localStorage
             var storageData = window.localStorage.getItem('cart');
             if (storageData) {
                 var ids = storageData.split(',');
@@ -80,22 +78,17 @@ new Vue({
                 } else {
                     window.localStorage.removeItem('cart');
                 }
-            }
-            // Якщо ми на сторінці цього ж товару, оновлюємо кнопку
+    
             if (this.product.id == id) this.btnVisible = 0;
         },
         makeOrder: function() {
-            // Показуємо результат замість форми
             this.orderSubmitted = true;
-            
-            // Очищуємо все
             this.cart = [];
             window.localStorage.removeItem('cart');
             this.btnVisible = 0;
         }
     },
     mounted: function() {
-        // Виконується на всіх сторінках, де підключено main.js
         this.getProduct();   
         this.checkInCart();  
         this.getCart();
